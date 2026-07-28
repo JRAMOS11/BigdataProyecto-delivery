@@ -1,0 +1,261 @@
+/* ==========================
+   COCINA / HISTORIAL
+========================== */
+
+.cocina-page {
+    padding-top: 3.5rem;
+}
+
+.cocina-page h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+}
+
+.cocina-back {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: .9rem;
+    color: var(--toasted);
+    text-decoration: none;
+}
+
+.cocina-back:hover {
+    color: #f9be5a;
+}
+
+.cocina-table-wrap {
+    overflow-x: auto;
+}
+
+.cocina-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-surface);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.cocina-table thead tr {
+    border-bottom: 2px solid var(--tomato);
+}
+
+.cocina-table th {
+    padding: .75rem 1.25rem;
+    text-align: left;
+    color: var(--text-muted);
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+.cocina-table td {
+    padding: .75rem 1.25rem;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border);
+}
+
+.cocina-table tbody tr:hover {
+    background: rgba(255,255,255,0.02);
+}
+
+.cocina-table .id-col {
+    color: var(--text-muted);
+}
+
+.cocina-table .fecha-col {
+    color: var(--text-muted);
+    font-size: .85rem;
+}
+
+.estado-badge {
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    padding: .2rem .75rem;
+    border-radius: 2rem;
+    font-size: .82rem;
+    color: var(--text-main);
+}
+
+.cocina-table .btn-avanzar {
+    background: var(--tomato);
+    color: #fff;
+    border: none;
+    padding: .35rem 1rem;
+    border-radius: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: .82rem;
+    margin: 0;
+}
+
+.cocina-table .btn-avanzar:hover {
+    opacity: .85;
+}
+
+.cocina-table .btn-rechazar {
+    background: transparent;
+    color: var(--tomato);
+    border: 2px solid var(--tomato);
+    padding: .35rem 1rem;
+    border-radius: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: .82rem;
+    margin: 0;
+}
+
+.cocina-table .btn-rechazar:hover {
+    background: var(--tomato);
+    color: #fff;
+}
+
+/* ==========================
+   CONFIRMACIÓN DE PEDIDO
+========================== */
+
+.confirmar-page {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: -2rem;
+}
+
+.confirmar-barra {
+    background: linear-gradient(90deg, var(--tomato), #d44e24);
+    color: white;
+    padding: 16px;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: .05em;
+}
+
+.confirmar-body {
+    width: 95%;
+    max-width: 1100px;
+    margin: 2rem auto;
+    background: var(--bg-surface);
+    padding: 2.5rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+    text-align: center;
+    border: 1px solid var(--border);
+    box-sizing: border-box;
+}
+.confirmar-table td:last-child {
+    min-width: 220px;
+}
+.confirmar-icon {
+    background: var(--tomato);
+    color: white;
+    width: 64px;
+    height: 64px;
+    line-height: 64px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.confirmar-body h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--text-main);
+    margin-bottom: .5rem;
+}
+
+.confirmar-linea {
+    width: 140px;
+    height: 4px;
+    background: var(--tomato);
+    margin: .75rem auto 1.5rem;
+    border-radius: 4px;
+}
+
+.confirmar-success {
+    color: var(--green);
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.confirmar-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+.confirmar-table th {
+    background: var(--bg-dark);
+    color: var(--text-muted);
+    padding: 1rem 1.25rem;
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    text-align: left;
+    border-bottom: 2px solid var(--tomato);
+}
+
+.confirmar-table td {
+    padding: 1rem 1.25rem;
+    font-size: .95rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-main);
+    text-align: left;
+}
+
+.confirmar-table tbody tr:hover {
+    background: rgba(255,255,255,0.02);
+}
+
+.estado-badge-pend {
+    background: rgba(241,196,15,0.15);
+    color: #f1c40f;
+    border: 1px solid rgba(241,196,15,0.3);
+    padding: .2rem .75rem;
+    border-radius: 2rem;
+    font-size: .82rem;
+    font-weight: 600;
+}
+
+.btn-confirmar-p {
+    background: var(--green);
+    color: #fff;
+    border: none;
+    padding: .5rem 1.25rem;
+    border-radius: 2rem;
+    font-size: .85rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 0;
+}
+
+.btn-confirmar-p:hover { opacity: .85; }
+
+.btn-rechazar-p {
+    background: transparent;
+    color: var(--tomato);
+    border: 2px solid var(--tomato);
+    padding: .5rem 1.25rem;
+    border-radius: 2rem;
+    font-size: .85rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 0;
+}
+
+.btn-rechazar-p:hover {
+    background: var(--tomato);
+    color: #fff;
+}
+#main-content:has(.confirmar-barra) {
+    padding: 0;
+    max-width: 100%;
+}

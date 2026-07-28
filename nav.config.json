@@ -1,0 +1,53 @@
+{
+    "public": [
+        {
+            "id": "Menu_Home",
+            "nav_url": "index.php?page=Index",
+            "nav_label": "Home"
+        }
+    ],
+    "private": [
+        {
+    "id": "Menu_Confirmar",
+    "nav_url": "index.php?page=Cocina.ConfirmarPedido",
+    "nav_label": "Confirmar Pedidos",
+    "roles": ["cocina", "admin"]
+        },
+        {
+            "id": "Menu_Cocina",
+            "nav_url": "index.php?page=Cocina.Cocina",
+            "nav_label": "Cocina",
+            "roles": ["cocina", "admin"]
+        },
+        {
+            "id": "Menu_Historial",
+            "nav_url": "index.php?page=Cocina.Historial",
+            "nav_label": "Historial",
+            "roles": ["cocina", "admin"]
+        },
+        {
+            "id": "Menu_Tracking",
+            "nav_url": "index.php?page=Tracking_Menu",
+            "nav_label": "Menú",
+            "roles": ["cliente"]
+        },
+        {
+            "id": "Menu_MisPedidos",
+            "nav_url": "index.php?page=Tracking_MisPedidos",
+            "nav_label": "Mis Pedidos",
+            "roles": ["cliente"]
+        },
+        {
+            "id": "Menu_Carrito",
+            "nav_url": "index.php?page=Tracking_Carrito",
+            "nav_label": "Carrito",
+            "roles": ["cliente"]
+        },
+        {
+            "id": "Menu_Admin",
+            "nav_url": "index.php?page=Admin.Admin",
+            "nav_label": "Admin",
+            "roles": ["admin"]
+        }
+    ]
+}

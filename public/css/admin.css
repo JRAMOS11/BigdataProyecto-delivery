@@ -1,0 +1,288 @@
+/* ── Admin panel ───────────────────────────────────────── */
+
+.admin-page h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+}
+
+/* ── KPI grid ──────────────────────────────────────────── */
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 1.75rem;
+}
+
+.kpi-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+}
+
+.kpi-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.kpi-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.kpi-card.warn .kpi-value { color: var(--toasted); }
+.kpi-card.ok   .kpi-value { color: var(--green);   }
+.kpi-card.danger .kpi-value { color: var(--tomato); }
+
+/* ── Quick-access cards (dashboard) ───────────────────── */
+
+.admin-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.admin-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 1.25rem;
+  text-decoration: none;
+  display: block;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.admin-card:hover {
+  border-color: var(--toasted);
+  background: rgba(251, 203, 123, 0.04);
+}
+
+.admin-card i {
+  font-size: 1.6rem;
+  color: var(--toasted);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.admin-card-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
+}
+
+.admin-card-desc {
+  font-size: 0.83rem;
+  color: var(--text-muted);
+}
+
+/* ── Tables ────────────────────────────────────────────── */
+
+.admin-table-wrap {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.admin-table thead tr {
+  border-bottom: 2px solid var(--tomato);
+}
+
+.admin-table th {
+  padding: 0.65rem 1rem;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.admin-table td {
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  color: var(--text-main);
+  border-bottom: 1px solid var(--border);
+}
+
+.admin-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-table tbody tr:hover {
+  background: rgba(255,255,255,0.02);
+}
+
+/* ── Badges ────────────────────────────────────────────── */
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.75rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.badge-cliente  { background: rgba(92,143,34,0.15);  color: var(--green);   border: 1px solid rgba(92,143,34,0.3);  }
+.badge-cocina   { background: rgba(251,203,123,0.12); color: var(--toasted); border: 1px solid rgba(251,203,123,0.3); }
+.badge-admin    { background: rgba(235,94,48,0.12);   color: var(--tomato);  border: 1px solid rgba(235,94,48,0.3);  }
+.badge-si       { background: rgba(92,143,34,0.15);   color: var(--green);   border: 1px solid rgba(92,143,34,0.3);  }
+.badge-no       { background: rgba(235,94,48,0.12);   color: var(--tomato);  border: 1px solid rgba(235,94,48,0.3);  }
+
+/* ── Inline form controls inside table ─────────────────── */
+
+.admin-table form {
+  max-width: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+}
+
+.admin-table select {
+  background: var(--bg-dark);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.82rem;
+  font-family: inherit;
+}
+
+.admin-table input[type=number] {
+  width: 64px;
+  padding: 0.25rem 0.4rem;
+  background: var(--bg-dark);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.82rem;
+  font-family: inherit;
+  margin: 0;
+}
+
+.admin-editor-form {
+  max-width: none;
+  display: grid;
+  grid-template-columns: 1.2fr 1.6fr .7fr .6fr .7fr auto;
+  gap: 10px;
+  align-items: end;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.admin-editor-form input,
+.admin-editor-form select,
+.admin-row-form input,
+.admin-row-form select {
+  width: 100%;
+  min-width: 0;
+  padding: .45rem .55rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-dark);
+  color: var(--text-main);
+  font: inherit;
+}
+
+.admin-editor-form button {
+  margin-top: 0;
+  white-space: nowrap;
+}
+
+.admin-row-form {
+  max-width: none;
+  display: grid !important;
+  grid-template-columns: 1.2fr 1.8fr .7fr .6fr .7fr auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.admin-menu-table td:first-child {
+  width: 48px;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-sm {
+  margin: 0;
+  padding: 0.25rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: var(--tomato);
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-sm:hover {
+  background: #d44e24;
+  transform: translateY(-1px);
+}
+
+.btn-sm.btn-success {
+  background: var(--green);
+}
+
+.btn-sm.btn-success:hover {
+  background: #4a7519;
+}
+
+/* ── Alert messages ─────────────────────────────────────── */
+
+.admin-alert {
+  padding: 0.65rem 1rem;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  margin-bottom: 1.25rem;
+  border-left: 3px solid var(--green);
+  background: rgba(92,143,34,0.1);
+  color: var(--green);
+}
+
+/* ── Back link ──────────────────────────────────────────── */
+
+.admin-back {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--toasted);
+  text-decoration: none;
+}
+
+.admin-back:hover {
+  color: #f9be5a;
+}
+main {
+    max-width: 1200px;
+}
+.admin-page {
+    padding-top: 2rem;
+}

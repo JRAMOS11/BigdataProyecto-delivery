@@ -1,0 +1,176 @@
+Lista de cambios aplicados
+==========================
+
+1. src/Controllers/Tracking/MisPedidos.php
+   - Se agrego filtro de pedidos por estado.
+   - Se valida que el estado recibido por URL sea permitido.
+   - Se preparan etiquetas, clases CSS y pasos para mostrar el seguimiento del pedido.
+
+2. src/Dao/Tracking/Pedidos.php
+   - Se actualizo getPedidosByUser para aceptar un filtro opcional por estado.
+   - El filtro usa parametros preparados para mantener segura la consulta.
+
+3. src/Views/templates/tracking/mispedidos.view.tpl
+   - Se agrego el formulario para filtrar por estado.
+   - Se agrego mensaje cuando no hay pedidos para mostrar.
+   - Se agrego una columna de seguimiento con los pasos: Pendiente, En proceso, Listo y Entregado.
+
+4. src/Controllers/Tracking/Pedido.php
+   - Se cambio el controlador para requerir sesion iniciada.
+   - Se valida que el pedido tenga plato y cantidad valida.
+   - Se valida que el plato exista y tenga stock suficiente antes de insertar.
+
+5. src/Views/templates/tracking/menu.view.tpl
+   - Se corrigio el input de cantidad agregando required y separando correctamente min, max y value.
+
+6. public/css/style.css
+   - Se agregaron estilos para el filtro, estado vacio y linea de seguimiento.
+
+7. src/Controllers/PrivateNoAuthException.php
+   - Se agrego el archivo para que Composer pueda cargar la excepcion por autoload.
+
+8. src/Controllers/PrivateNoLoggedException.php
+   - Se agrego el archivo para que Composer pueda cargar la excepcion por autoload.
+
+
+Forma de demostrarlos
+=====================
+
+1. Iniciar sesion como cliente.
+   - Entrar a: index.php?page=Sec.Login
+   - Luego entrar a: index.php?page=Tracking_Menu
+
+2. Demostrar validacion de pedidos vacios.
+   - En el menu, intentar cambiar la cantidad a 0 o borrar el valor.
+   - El navegador no debe permitir enviar por el required/min.
+   - Si se fuerza el envio por herramientas del navegador, el servidor redirige con mensaje:
+     "Debe seleccionar un plato y una cantidad valida."
+
+3. Crear un pedido valido.
+   - Seleccionar un plato con stock.
+   - Dejar cantidad 1 o una cantidad menor o igual al stock.
+   - Presionar "Realizar Pedido".
+   - El sistema redirige a "Mis Pedidos".
+
+4. Demostrar seguimiento del pedido para cliente.
+   - Entrar a: index.php?page=Tracking_MisPedidos
+   - Revisar la columna "Seguimiento".
+   - Se muestran los pasos: Pendiente, En proceso, Listo y Entregado.
+
+5. Demostrar filtro por estado.
+   - En "Mis Pedidos", usar el selector "Filtrar por estado".
+   - Probar con "Pendiente", "En Proceso", "Listo", "Entregado" o "Cancelado".
+   - El listado cambia segun el estado seleccionado.
+   - Si no hay resultados, aparece el mensaje "No hay pedidos para mostrar".
+
+6. Demostrar avance del estado desde cocina.
+   - Iniciar sesion como usuario cocina o admin.
+   - Entrar a: index.php?page=Cocina.ConfirmarPedido
+   - Confirmar un pedido pendiente para pasarlo a "en_proceso".
+   - Entrar a: index.php?page=Cocina.Cocina
+   - Presionar "Avanzar" para moverlo de "en_proceso" a "listo" y luego a "entregado".
+   - Volver a cliente y revisar que la columna "Seguimiento" refleje el avance.
+
+
+Cambios adicionales aplicados
+=============================
+
+9. parameters.env
+   - Se corrigio BASE_DIR para que apunte a:
+     /SEMINARIO-TALLER-DE-SOFTWARE/
+   - Esto permite que los archivos CSS carguen correctamente.
+
+10. src/Views/templates/layout.view.tpl
+    - Se agrego la carga de public/css/style.css en el layout publico.
+    - Se limpio el texto del boton de inicio de sesion.
+
+11. src/Views/templates/privatelayout.view.tpl
+    - Se corrigieron las rutas de CSS y scripts usando BASE_DIR sin doble slash.
+    - Se corrigieron los enlaces de cierre de sesion para usar:
+      index.php?page=Sec.Logout
+
+12. src/Controllers/Sec/Logout.php
+    - Se reforzo el cierre de sesion.
+    - Ahora limpia $_SESSION, destruye la sesion activa y redirige al inicio.
+
+13. src/Controllers/Admin/GestionPlatos.php
+    - Se agrego accion para crear platos nuevos.
+    - Se agrego accion para editar nombre, descripcion, precio, stock y disponibilidad.
+    - Se validan datos basicos antes de guardar.
+
+14. src/Dao/AdminDao.php
+    - Se agrego crearPlato.
+    - Se agrego actualizarPlato.
+    - Ambas funciones guardan precio y stock con valores no negativos.
+
+15. src/Views/templates/admin/platos.view.tpl
+    - Se reemplazo la vista por una pantalla editable.
+    - Incluye formulario para agregar platos nuevos al menu.
+    - Incluye edicion directa de platos existentes.
+    - Incluye accesos a confirmar pedidos y avanzar pedidos.
+
+16. src/Views/templates/admin/admin.view.tpl
+    - Se agregaron accesos rapidos para:
+      Gestion de platos.
+      Confirmar pedidos.
+      Avanzar pedidos.
+
+17. public/css/admin.css
+    - Se agregaron estilos para el formulario de agregar plato.
+    - Se agregaron estilos para la edicion en filas.
+    - Se agregaron estilos para accesos administrativos.
+
+18. src/Controllers/Cocina/Cocina.php
+    - Se cambio para requerir sesion privada.
+    - Solo cocina o admin pueden ver pedidos en proceso.
+    - Se agrego texto dinamico para el boton:
+      "Marcar listo" o "Marcar entregado".
+
+19. src/Controllers/Cocina/ActualizarEstado.php
+    - Se cambio a controlador privado.
+    - Solo cocina o admin pueden actualizar procesos.
+    - Se valida id, version y estado antes de avanzar.
+    - El flujo queda:
+      pendiente -> en_proceso -> listo -> entregado
+
+20. src/Views/templates/cocina/cocina.view.tpl
+    - El boton de avance ya no dice solo "Avanzar".
+    - Ahora muestra la accion concreta segun el estado del pedido.
+
+
+Forma de demostrar los cambios adicionales
+==========================================
+
+1. Demostrar que el diseno funciona.
+   - Abrir:
+     http://localhost:8080/SEMINARIO-TALLER-DE-SOFTWARE/index.php?page=Sec.Login
+   - Hacer recarga fuerte con Ctrl + F5.
+   - La pantalla debe verse con estilos, no como texto en blanco.
+
+2. Demostrar logout.
+   - Iniciar sesion.
+   - Presionar "Salir".
+   - Debe cerrar sesion y volver al inicio/login.
+   - Si se intenta entrar a una ruta privada, debe pedir login otra vez.
+
+3. Demostrar agregar platos como admin.
+   - Iniciar sesion como admin.
+   - Entrar a:
+     index.php?page=Admin.GestionPlatos
+   - Llenar nombre, descripcion, precio, stock y disponibilidad.
+   - Presionar "Agregar plato".
+   - El nuevo plato debe aparecer en la tabla y en el menu del cliente si esta disponible.
+
+4. Demostrar editar platos y cantidades.
+   - En Gestion de platos, cambiar precio, stock o disponibilidad.
+   - Presionar "Guardar".
+   - Entrar como cliente al menu y verificar que el stock/disponibilidad cambio.
+
+5. Demostrar avance de procesos.
+   - Como admin o cocina, entrar a:
+     index.php?page=Cocina.ConfirmarPedido
+   - Confirmar un pedido pendiente.
+   - Luego entrar a:
+     index.php?page=Cocina.Cocina
+   - Usar "Marcar listo" y despues "Marcar entregado".
+   - Como cliente, entrar a Mis Pedidos y revisar que el seguimiento refleje el nuevo estado.
