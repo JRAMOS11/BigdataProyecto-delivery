@@ -293,7 +293,7 @@
             <div class="producto-imagen-contenedor">
 
                 <img
-                src="http://localhost/NWEB/SEMINARIO-TALLER-DE-SOFTWARE/public/{{imagen}}"
+                src="http://localhost/NWEB/delivery_app/public/{{imagen}}"
                 alt="{{nombre}}"
                 class="producto-imagen"
                 >
