@@ -20,6 +20,18 @@
             "roles": ["cocina", "admin"]
         },
         {
+            "id": "Menu_Generador",
+            "nav_url": "index.php?page=Admin.GeneradorMasivo",
+            "nav_label": "Generador Masivo",
+            "roles": ["admin"]
+        },
+        {
+            "id": "Menu_Estadisticas",
+            "nav_url": "index.php?page=Admin.Estadisticas",
+            "nav_label": "Estadísticas",
+            "roles": ["admin"]
+        },
+        {
             "id": "Menu_Historial",
             "nav_url": "index.php?page=Cocina.Historial",
             "nav_label": "Historial",

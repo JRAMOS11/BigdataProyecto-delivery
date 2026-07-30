@@ -1,0 +1,283 @@
+.generator-page,
+.generator-page * {
+    box-sizing: border-box;
+}
+
+.generator-page {
+    min-height: 100vh;
+    padding: 24px;
+    color: #111827;
+    background: #f3f4f6;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.generator-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    color: #ffffff;
+    background: linear-gradient(120deg, #8a3f05, #d97706, #ef9a22);
+}
+
+.generator-header,
+.generator-header * {
+    color: #ffffff !important;
+}
+
+.generator-label {
+    margin: 0 0 6px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+.generator-header h1 {
+    margin: 0;
+    font-size: 29px;
+}
+
+.generator-header p {
+    margin: 8px 0 0;
+}
+
+.producer-status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.14);
+    font-weight: 700;
+}
+
+#producerPoint {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #facc15;
+}
+
+.generator-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.generator-panel {
+    padding: 21px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    color: #111827;
+    background: #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.generator-panel h2 {
+    margin: 0 0 18px;
+    color: #000000;
+    font-size: 21px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group label {
+    color: #111827;
+    font-weight: 800;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    color: #111827;
+    background: #ffffff;
+    font-size: 14px;
+}
+
+.form-group small {
+    color: #4b5563;
+}
+
+.generator-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.generator-buttons button,
+.log-header button {
+    padding: 11px 15px;
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: #d97706;
+}
+
+.btn-secondary {
+    color: #111827 !important;
+    background: #e5e7eb;
+}
+
+.btn-warning {
+    background: #b45309;
+}
+
+.btn-danger {
+    background: #b91c1c;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.status-list {
+    display: grid;
+    gap: 10px;
+}
+
+.status-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    background: #f3f4f6;
+}
+
+.status-item span {
+    color: #4b5563;
+    font-weight: 700;
+}
+
+.status-item strong {
+    color: #000000;
+}
+
+.progress-container {
+    margin-top: 20px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 14px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #d1d5db;
+}
+
+#progressBar {
+    width: 0%;
+    height: 100%;
+    border-radius: 20px;
+    background: #d97706;
+    transition: width 0.2s ease;
+}
+
+.log-panel {
+    margin-bottom: 20px;
+}
+
+.log-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.log-header h2 {
+    margin-bottom: 4px;
+}
+
+.log-header p {
+    margin: 0;
+    color: #4b5563;
+}
+
+.event-log {
+    height: 260px;
+    overflow-y: auto;
+    margin-top: 17px;
+    padding: 14px;
+    border-radius: 8px;
+    color: #d1fae5;
+    background: #111827;
+    font-family: Consolas, monospace;
+    font-size: 13px;
+}
+
+.log-line {
+    margin-bottom: 7px;
+}
+
+.log-success {
+    color: #86efac;
+}
+
+.log-error {
+    color: #fca5a5;
+}
+
+.log-info {
+    color: #fde68a;
+}
+
+@media (max-width: 900px) {
+    .generator-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .generator-header,
+    .log-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    .generator-page {
+        padding: 12px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .generator-buttons {
+        flex-direction: column;
+    }
+
+    .generator-buttons button {
+        width: 100%;
+    }
+}
