@@ -1,0 +1,27 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Compilación .NET
+bin/
+obj/
+Debug/
+Release/
+
+# Paquetes
+packages/
+*.nupkg
+
+# Archivos temporales
+*.tmp
+*.log
+
+# Configuración local
+appsettings.Development.json
+
+# Sistema operativo
+Thumbs.db
+.DS_Store
